@@ -1,24 +1,38 @@
-This is free and unencumbered software released into the public domain.
+def calculate_bmi(weight, height):
+    """
+    Calculate BMI (Body Mass Index) using weight (in kilograms) and height (in meters).
+    Formula: BMI = weight / (height * height)
+    """
+    bmi = weight / (height ** 2)
+    return bmi
 
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
+def interpret_bmi(bmi):
+    """
+    Interpret BMI value and return corresponding category.
+    """
+    if bmi < 18.5:
+        return "Underweight"
+    elif 18.5 <= bmi < 25:
+        return "Normal weight"
+    elif 25 <= bmi < 30:
+        return "Overweight"
+    else:
+        return "Obese"
 
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
+def main():
+    # Input weight in kilograms
+    weight = float(input("Enter your weight in kilograms: "))
+    # Input height in meters
+    height = float(input("Enter your height in meters: "))
+    
+    # Calculate BMI
+    bmi = calculate_bmi(weight, height)
+    
+    # Interpret BMI
+    category = interpret_bmi(bmi)
+    
+    print("Your BMI is:", bmi)
+    print("You are", category)
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-
-For more information, please refer to <https://unlicense.org>
+if __name__ == "__main__":
+    main()
